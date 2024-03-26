@@ -1,17 +1,31 @@
-function fizzbuzz() {
-  for  (let i = 1; i <= 151; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-        console.log("FizzBuzz")
-    } else if (i % 3 === 0) {
-        console.log("Fizz")
-    } else if (i % 5 === 0) {
-        console.log("Buzz")
+window.addEventListener('scroll', function() {
+    const footer = document.getElementById('footer');
+    const progress = document.getElementById('progress');
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = (document.documentElement.scrollTop / scrollHeight) * 100;
+
+    progress.style.width = scrolled + '%';
+});
+
+
+const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+let konamiIndex = 0;
+
+function konamiHandler(event) {
+    if (event.key === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiCode.length) {
+            applyTheme();
+            konamiIndex = 0;
+        }
     } else {
-        console.log(i)
+        konamiIndex = 0;
     }
 }
 
+function applyTheme() {
+    document.body.classList.add('laPlateforme');
 }
 
+document.addEventListener('keydown', konamiHandler);
 
-fizzbuzz();
