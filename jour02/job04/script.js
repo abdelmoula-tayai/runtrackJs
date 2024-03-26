@@ -1,16 +1,14 @@
-function estBisextile(annee) {
+const keylogger = document.getElementById('keylogger');
 
-    if ((annee % 4 == 0 && annee % 100 != 0) || annee % 400 == 0){
-            return true;
-    } else { 
-            return false;
+document.addEventListener('keypress', function(event){
+    const key = event.key;
+    if (/[a-z]/.test(key)){
+        if (document.activeElement === keylogger){
+            keylogger.value += key = key;
+        }
+        else {
+            keylogger.focus();
+            keylogger.value += key;
+        }
     }
-}
-
-let annee = 2024;
-
-if (estBisextile(annee)) {
-    console.log("L'année " + annee + " est bisextile");
-} else {
-    console.log("L'année " + annee + " n'est pas bisextile");
-}
+} )
