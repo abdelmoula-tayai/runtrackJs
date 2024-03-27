@@ -1,14 +1,29 @@
-function tri(numbers, order) {
-    if (order === "asc") {
-        return numbers.sort((a, b) => a - b);
-    } else if (order === "desc") {
-        return numbers.sort((a, b) => b - a);
+$(document).ready(function(){
+    const $rainbow = $("#rainbow");
+    const $shuffleButton = $("#shuffleButton");
+    const $resultMessage = $("#resultMessage");
+
+    function shuffleRainbow(){
+        $.each($rainbow.children(), function(i, img){
+            $rainbow.append($rainbow.children().eq(Math.floor(Math.random() * i)));
+            checkRainbow();
+        });
     }
-}
 
-let numbers = [4, 2, 7, 1, 9];
-let order = "asc";
-console.log("Tableau trié en ordre ascendant:", tri(numbers.slice(), order));
+    function checkRainbow() {
+        let sorted = true;
+        $rainbow.children().each(function(i) {
+            if ($(this).attr('alt') !== 'arc' + (i+1)) {
+                sorted = false;
+                return false; 
+            }
+        });
+        if (sorted) {
+            $resultMessage.text('Vous avez gagné').css('color', 'green');
+        } else {
+            $resultMessage.text('Vous avez perdu').css('color', 'red');
+        }
+    }
 
-order = "desc";
-console.log("Tableau trié en ordre descendant:", tri(numbers.slice(), order));
+    $shuffleButton.on("click", shuffleRainbow)
+});

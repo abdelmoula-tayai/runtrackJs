@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="script.js" async></script>
+    <style>
+        #rainbow {
+            display: flex;
+        }
+
+        #rainbow img {
+            width: 100px;
+            height: auto;
+        }
+
+        #resultMessage {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div id="rainbow">
+        <img src="assets/arc1.png" alt="arc1">
+        <img src="assets/arc2.png" alt="arc2">
+        <img src="assets/arc3.png" alt="arc3">
+        <img src="assets/arc4.png" alt="arc4">
+        <img src="assets/arc5.png" alt="arc5">
+        <img src="assets/arc6.png" alt="arc6">
+    </div>
     
+    <button id="shuffleButton">Mélanger</button>
+
+    <div id="resultMessage"></div>
 </body>
 </html>
