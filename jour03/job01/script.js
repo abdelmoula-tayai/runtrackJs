@@ -1,13 +1,9 @@
-function show() {
-    let element = document.getElementById("texte");
-    if (element.style.display === "none") {
-        element.style.display = "block";
-    }
-}
+$(document).ready(function(){
+    $("#show").click(function(){
+        $("#texte").show();
+    });
 
-function hide(){
-    let element = document.getElementById("texte");
-    if (element.style.display === "block") {
-        element.style.display = "none";
-    }
-}
+    $("#hide").click(function(){
+        $("p").hide();
+    });
+});
