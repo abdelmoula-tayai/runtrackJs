@@ -1,67 +1,46 @@
-$(document).ready(function() {
-    const images = ['logo1.png', 'logo2.png', 'logo3.png', 'logo4.png', 'logo5.png', 'logo6.png', 'logo7.png', 'logo8.png'];
-    initializeGame(images);
+document.getElementById("filtrer").addEventListener("click", function() {
+    const id = getValueAndTrim("id");
+    const nom = getValueAndTrim("nom");
+    const type = getValueAndTrim("type");
 
-    $('#restartButton').click(function() {
-        $('#message').hide();
-        $(this).hide();
-        initializeGame(images);
-    });
+    fetch("pokemon.json")
+        .then(response => response.json())
+        .then(data => {
+            const filteredData = data.filter(pokemon => {
+                return (
+                    (!id || pokemon.id == id) &&
+                    (!nom || pokemon.name.english.toLowerCase().includes(nom.toLowerCase())) &&
+                    (!type || pokemon.type.includes(type))
+                );
+            });
+
+            displayPokemon(filteredData);
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+        });
 });
 
-function initializeGame(images) {
-    const gameBoard = $('#gameBoard');
-    gameBoard.empty();
-    let tiles = [];
-
-    for (let i = 0; i < images.length; i++) {
-        const tile = $('<div class="tile"></div>');
-        const img = $('<img>').attr('src', 'assets/' + images[i]).attr('alt', 'Logo ' + (i + 1));
-        tile.append(img);
-        tiles.push(tile);
-    }
-
-    tiles.push($('<div class="tile empty"></div>'));
-    tiles.sort(() => Math.random() - 0.5);
-
-    tiles.forEach(tile => {
-        gameBoard.append(tile);
-    });
-
-    $('.tile:not(.empty)').click(function() {
-        moveTile(this);
-    });
+function getValueAndTrim(elementId) {
+    return document.getElementById(elementId).value.trim();
 }
 
-function moveTile(tile) {
-    const emptyTile = $('.empty');
-    const tileIndex = $(tile).index();
-    const emptyIndex = $(emptyTile).index();
-    const rowCount = 3;
+function displayPokemon(pokemonData) {
+    const pokemonListDiv = document.getElementById("pokemonList");
+    pokemonListDiv.innerHTML = "";
 
-    const isAdjacent = 
-        (Math.abs(tileIndex - emptyIndex) === 1 && Math.floor(tileIndex / rowCount) === Math.floor(emptyIndex / rowCount)) ||
-        (Math.abs(tileIndex - emptyIndex) === rowCount);
-
-    if (isAdjacent) {
-        const tileImg = $(tile).children('img').detach();
-        $(emptyTile).append(tileImg);
-        $(emptyTile).removeClass('empty');
-        $(tile).addClass('empty');
-
-        $('.tile').off('click').click(function() {
-            moveTile(this);
-        });
-
-        checkVictory();
+    if (pokemonData.length === 0) {
+        pokemonListDiv.textContent = "Aucun Pokémon trouvé.";
+        return;
     }
-}
 
-function checkVictory() {
-    const tilesOrder = $('#gameBoard .tile:not(.empty) img').toArray().map(img => $(img).attr('alt').match(/Logo (\d)$/)[1]);
-    if (tilesOrder.join('') === '12345678') {
-        $('#message').text('Vous avez gagné').show();
-        $('#restartButton').show();
-        $('.tile').off('click');
-    }
+    const ul = document.createElement("ul");
+
+    pokemonData.forEach(pokemon => {
+        const li = document.createElement("li");
+        li.textContent = `${pokemon.name.english} - Type: ${pokemon.type.join(", ")}`;
+        ul.appendChild(li);
+    });
+
+    pokemonListDiv.appendChild(ul);
 }

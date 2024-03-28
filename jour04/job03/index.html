@@ -4,58 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="script.js" async></script>
     <title>Jeu du Taquin</title>
     <!DOCTYPE html>
     <html>
     <head>
-        <style>
-            #gameBoard {
-                display: grid;
-                grid-template-columns: repeat(3, 100px);
-                grid-template-rows: repeat(3, 100px);
-                width: 300px;
-                height: 300px;
-                margin: 50px auto;
-                border: 1px solid #000;
-            }
-
-            .tile {
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                border: 1px solid #000;
-            }
-            
-            .tile img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-            
-            .empty {
-                visibility: hidden;
-            }
-
-            #message {
-                text-align: center;
-                margin-top: 20px;
-                font-size: 20px;
-                color: green;
-                display: none;
-            }
-        </style>
     </head>
     <body>
+        <h1>cherche un pokemon</h1>
+        <form id="filterForm">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id"><br><br>
+    
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom"><br><br>
+    
+            <label for="type">Type:</label>
+            <select id="type" name="type">
+                <option value="">-- Sélectionnez un type --</option>
+                <option value="Grass">Grass</option>
+                <option value="Poison">Poison</option>
+                <option value="Fire">Fire</option>
+                <option value="Flying">Flying</option>
+                <option value="Water">Water</option>
+                <option value="Bug">Bug</option>
+                <option value="Normal">Normal</option>
+                <option value="Electric">Electric</option>
+                <option value="Ground">Ground</option>
+                <option value="Fairy">Fairy</option>
+                <option value="Fighting">Fighting</option>
+                <option value="Psychic">Psychic</option>
+                <option value="Rock">Rock</option>
+                <option value="Steel">Steel</option>
+                <option value="Ice">Ice</option>
+                <option value="Ghost">Ghost</option>
+                <option value="Dragon">Dragon</option>
+                <option value="Dark">Dark</option>
+            </select><br><br>
+    
+            <input type="button" value="Filtrer" id="filtrer">
+        </form>
 
-        <div id="gameBoard"></div>
-
-        <div id="message"></div>
-
-        <button id="restartButton" style="display: none;">Recommencer</button>
-
-        
+        <div id="pokemonList"></div>
+    
 
     </body>
     </html>
