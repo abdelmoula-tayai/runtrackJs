@@ -1,29 +1,16 @@
-$(document).ready(function(){
-    const $rainbow = $("#rainbow");
-    const $shuffleButton = $("#shuffleButton");
-    const $resultMessage = $("#resultMessage");
+function jsonValueKey(json, key) {
+    let jsonObject = json;
+    return jsonObject[key];
+}
 
-    function shuffleRainbow(){
-        $.each($rainbow.children(), function(i, img){
-            $rainbow.append($rainbow.children().eq(Math.floor(Math.random() * i)));
-            checkRainbow();
-        });
-    }
+const json = {
+    "name": "La Plateforme_",
+    "address": "8 rue d'Hozier",
+    "city": "Marseille",
+    "nb_staff": "11",
+    "creation": "2019"
+};
 
-    function checkRainbow() {
-        let sorted = true;
-        $rainbow.children().each(function(i) {
-            if ($(this).attr('alt') !== 'arc' + (i+1)) {
-                sorted = false;
-                return false; 
-            }
-        });
-        if (sorted) {
-            $resultMessage.text('Vous avez gagné').css('color', 'green');
-        } else {
-            $resultMessage.text('Vous avez perdu').css('color', 'red');
-        }
-    }
-
-    $shuffleButton.on("click", shuffleRainbow)
-});
+const key = "city";
+const value = jsonValueKey(json, key);
+console.log(`La valeur associée à la clé "${key}" est : ${value}`);
