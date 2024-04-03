@@ -29,6 +29,17 @@ const changeContent = (pageNumber) => {
     document.querySelector('.jumbotron p:nth-of-type(2)').textContent = contentArray[contentIndex];
 }
 
+const listItems = document.querySelectorAll('#myList .list-group-item');
+listItems.forEach(item => {
+    item.addEventListener('click', () => {
+        listItems.forEach(item => {
+            item.classList.remove('active');
+        });
+        item.classList.add('active');
+    });
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const progressBar = document.querySelector(".progress-bar");
     const leftButton = document.querySelector(".bi-arrow-bar-left");
@@ -69,4 +80,43 @@ window.onclick = (event) => {
     }
 }
 
+let keySequence = [];
+const secretCode = ['d', 'g', 'c'];
+
+document.addEventListener('keydown', (event) => {
+    keySequence.push(event.key.toLowerCase());
+    keySequence.splice(-secretCode.length - 1, keySequence.length - secretCode.length);
+
+    if (keySequence.join('') === secretCode.join('')) {
+        const modal = document.getElementById('myModal');
+        const formFields = document.querySelectorAll('form input, form select, form textarea');
+        let modalContent = '';
+
+        formFields.forEach(field => {
+            modalContent += `<p>${field.name}: ${field.value}</p>`;
+        });
+
+        document.querySelector('#myModal .modal-body').innerHTML = modalContent;
+        modal.style.display = 'block';
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const email = document.querySelector('input[type="email"]').value;
+            const password = document.querySelector('input[type="password"]').value;
+
+            if (email && password) {
+                const spinner = document.querySelector('#spinner');
+                const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'pink'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                spinner.style.color = randomColor;
+            }
+        });
+    }
+});
 
