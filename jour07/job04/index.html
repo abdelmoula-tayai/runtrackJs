@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire d'inscription</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="#8e24aa purple darken-1">
+            <div class="nav-wrapper container">
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html">Inscription</a></li>
+                    <li><a href="index.html">Connexion</a></li>
+                    <li><a href="index.html">Rechercher</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="section container">
+            <h2 class="header">Créez votre compte</h2>
+            <form>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">assignment_ind</i>
+                        <input type="text" id="prenom" name="prenom" class="validate" required>
+                        <label for="prenom">Prénom</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">assignment_ind</i>
+                        <input type="text" id="nom" name="nom" class="validate" required>
+                        <label for="nom">Nom</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">add_location</i>
+                        <input type="text" id="adresse" name="adresse" class="validate" required>
+                        <label for="adresse">Adresse</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input type="email" id="email" name="email" class="validate" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input type="password" id="password" name="password" class="validate" required>
+                        <label for="password">Mot de passe</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input type="password" id="confirm-password" name="confirm-password" class="validate" required>
+                        <label for="confirm-password">Confirmez le mot de passe</label>
+                    </div>
+                    <div class="col s12">
+                        <i class="material-icons prefix">beach_access</i>
+                        <label>Passions:</label>
+                        <p><label><input type="checkbox" name="passions" value="informatique"><span>Informatique</span></label></p>
+                        <p><label><input type="checkbox" name="passions" value="voyages"><span>Voyages</span></label></p>
+                        <p><label><input type="checkbox" name="passions" value="sport"><span>Sport</span></label></p>
+                        <p><label><input type="checkbox" name="passions" value="lecture"><span>Lecture</span></label></p>
+                    </div>
+                    <div class="input-field col s12">
+                        <button type="submit" class="btn waves-effect waves-light right #8e24aa purple darken-1">Valider<i class="material-icons right">send</i></button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <nav class="#8e24aa purple darken-1">
+            <div class="nav-wrapper container">
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html">Inscription</a></li>
+                    <li><a href="index.html">Connexion</a></li>
+                    <li><a href="index.html">Rechercher</a></li>
+                </ul>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>
