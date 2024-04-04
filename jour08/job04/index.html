@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header class="bg-indigo-800 p-10">
+        <nav class="flex justify-around text-white">
+            <a class="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="index.html">Accueil</a>
+            <a class="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="index.html">Inscription</a>
+            <a class="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="index.html">Connexion</a>
+            <a class="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="index.html">Rechercher</a>
+        </nav>
+    </header>
+
+    <section class="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-5 mb-5">
+        <h1 class="text-xl font-bold text-white capitalize dark:text-white">inscription</h1>
+        <form>
+            <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                <div>
+                    <label class="text-white dark:text-gray-200" for="male">Homme</label>
+                    <input id="male" type="radio" name="gender" value="male" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label class="text-white dark:text-gray-200" for="female">Femme</label>
+                    <input id="female" type="radio" name="gender" value="female" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label class="text-white dark:text-gray-200" for="fname">Prénom</label>
+                    <input id="fname" type="text" name="fname" placeholder="Prénom" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label class="text-white dark:text-gray-200" for="lname">Nom</label>
+                    <input id="lname" type="text" name="lname" placeholder="Nom" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label class="text-white dark:text-gray-200" for="address">Adresse</label>
+                    <input id="address" type="text" name="address" placeholder="Adresse" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label class="text-white dark:text-gray-200" for="email">Email</label>
+                    <input id="email" type="email" name="email" placeholder="Email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label class="text-white dark:text-gray-200" for="password">Mot de passe</label>
+                    <input id="password" type="password" name="password" placeholder="Mot de passe" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label class="text-white dark:text-gray-200" for="confirm_password">Confirmez le mot de passe</label>
+                    <input id="confirm_password" type="password" name="confirm_password" placeholder="Confirmez le mot de passe" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label class="text-white dark:text-gray-200" for="hobby1"> Informatique</label>
+                    <input type="checkbox" id="hobby1" name="hobby1" value="Informatique" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label class="text-white dark:text-gray-200" for="hobby2"> Voyages</label>
+                    <input type="checkbox" id="hobby2" name="hobby2" value="Voyages" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label class="text-white dark:text-gray-200" for="hobby3"> Sport</label>
+                    <input type="checkbox" id="hobby3" name="hobby3" value="Sport" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label class="text-white dark:text-gray-200" for="hobby4"> Lecture</label>
+                    <input type="checkbox" id="hobby4" name="hobby4" value="Lecture" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+            </div>
+            <div class="flex justify-end mt-6">
+                <input type="submit" value="Valider" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600">
+            </div>
+        </form>
+    </section>
+
+    <footer class="bg-indigo-800 p-10">
+        <nav class="flex justify-around text-white">
+            <a class="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="index.html">Accueil</a>
+            <a class="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="index.html">Inscription</a>
+            <a class="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="index.html">Connexion</a>
+            <a class="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center" href="index.html">Rechercher</a>
+        </nav>
+    </footer>
+</body>
+</html>
